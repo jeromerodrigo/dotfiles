@@ -1,0 +1,40 @@
+[user]
+    name = Jerome Rodrigo
+    email = jeromerodrigo@gmail.com
+[alias]
+    # one-line log
+    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate --date=short
+
+    a = add
+    ap = add -p
+    c = commit --verbose
+    ca = commit -a --verbose
+    cm = commit -m
+    cam = commit -a -m
+    m = commit --amend --verbose
+    
+    d = diff
+    ds = diff --stat
+    dc = diff --cached
+
+    st = status
+    co = checkout
+    cob = checkout -b
+
+    # branch
+    br = branch
+
+    # list branches sorted by last modified
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
+    # prune local tracking branches that don't exist
+    prune = "!git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
+[core]
+	editor = nano
+[fetch]
+	prune = true
+[cola]
+	spellcheck = false
