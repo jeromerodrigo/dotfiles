@@ -38,3 +38,5 @@
 	prune = true
 [cola]
 	spellcheck = false
+[init]
+	defaultBranch = main

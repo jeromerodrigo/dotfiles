@@ -7,7 +7,7 @@ export ZSH="/home/jerome/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
@@ -98,14 +98,26 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias cls="clear"
+alias g="git"
+
+# Add pip3 to PATH
+PATH=$PATH:/home/jerome/.local/bin;
+
 # Add JAVA_HOME - needed for sdk
 export JAVA_HOME=/usr/lib/jvm/default
 
-# Add atlas commands
-export PATH=/opt/atlassian/plugin-sdk/bin:$PATH
+# Android SDK
+export ANDROID_HOME=~/android-sdk-linux
+export ANDROID_SDK_ROOT=~/android-sdk-linux
+
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Disable sharing history
 unsetopt share_history
 
-# Alias clear
-alias cls=clear
+# Fix nomatch issue https://github.com/ohmyzsh/ohmyzsh/issues/31
+unsetopt nomatch
