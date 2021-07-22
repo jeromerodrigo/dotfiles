@@ -4,6 +4,7 @@
 [alias]
     # one-line log
     l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate --date=short
+    lg = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --date=short
 
     a = add
     ap = add -p
@@ -36,6 +37,8 @@
 	editor = nano
 [fetch]
 	prune = true
+[pull]
+    rebase = true
 [cola]
 	spellcheck = false
 [init]
