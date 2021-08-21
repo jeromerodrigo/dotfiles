@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CREDENTIALS=$(aws sso get-role-CREDENTIALS \
+    --role-name=$(aws configure get sso_rolename) \
+    --account-id=$(aws configure get sso_account_id) \
+    --access-token=$(jq -r ".accessToken" ~/.aws/sso/cache/$(ls -t ~/.aws/sso/cache | head -n1)))
+
+aws configure set aws_secret_access_key "$(echo "$CREDENTIALS" | jq -r ".roleCredentials.secretAccessKey")"
+aws configure set aws_access_key_id "$(echo "$CREDENTIALS" | jq -r ".roleCredentials.accessKeyId")"
+aws configure set aws_session_token "$(echo "$CREDENTIALS" | jq -r ".roleCredentials.sessionToken")"
