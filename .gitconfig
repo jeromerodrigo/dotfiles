@@ -1,6 +1,7 @@
 [user]
     name = Jerome Rodrigo
-    email = jeromerodrigo@gmail.com
+    email = 981330+jeromerodrigo@users.noreply.github.com
+    signingkey = CEB90407934A8827
 [alias]
     # one-line log
     l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate --date=short
@@ -49,3 +50,6 @@
     changed = red bold
     untracked = red
     branch = yellow black bold ul
+
+[commit]
+	gpgsign = true
