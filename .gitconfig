@@ -43,3 +43,9 @@
 	spellcheck = false
 [init]
 	defaultBranch = main
+
+[color "status"]
+    added = green bold
+    changed = red bold
+    untracked = red
+    branch = yellow black bold ul
