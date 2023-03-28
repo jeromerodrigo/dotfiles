@@ -8,7 +8,7 @@ export ZSH="/home/jerome/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="terminalparty"
+ZSH_THEME="dracula"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,14 +72,17 @@ plugins=(git branch)
 
 source $ZSH/oh-my-zsh.sh
 
-alias cls="clear"
-alias g="git"
+alias cls=clear
+alias g=git
 
 # Add custom scripts
 PATH=$PATH:$HOME/bin;
 
 # Add pip3 to PATH
 PATH=$PATH:/home/jerome/.local/bin;
+
+# Enable micro truecolor
+export MICRO_TRUECOLOR=1
 
 # Add JAVA_HOME - needed for sdk
 export JAVA_HOME=/usr/lib/jvm/default
@@ -98,3 +101,12 @@ unsetopt share_history
 
 # Fix nomatch issue https://github.com/ohmyzsh/ohmyzsh/issues/31
 unsetopt nomatch
+
+# Disable history bang syntax
+setopt nobanghist
+
+# autosuggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# starship prompt
+eval "$(starship init zsh)"

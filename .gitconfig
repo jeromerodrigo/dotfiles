@@ -38,6 +38,9 @@
 	editor = nano
 [fetch]
 	prune = true
+[push]
+	followTags = true
+	autoSetupRemote = true
 [pull]
     rebase = true
 [cola]
